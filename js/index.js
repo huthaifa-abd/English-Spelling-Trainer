@@ -20,7 +20,7 @@ $("#login-button").click(function (event) {
 $("#next-button").click(function (event) {
     event.preventDefault();
     var _userAnswer = $("#txtUserAnswer").val();
-    if (_userAnswer == currentWord)
+    if (_userAnswer.toLowerCase().trim() == currentWord.toLowerCase().trim())
         correctAnswerAction()
     else
         wrongAnswerAction();
