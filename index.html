@@ -1,50 +1,59 @@
 ﻿<!DOCTYPE html>
-<html >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Spelling Trainer V0.1</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Spelling Trainer V0.1</title>
 
-  
+
+
+    <link rel="stylesheet" href="css/style.css">
+
+
 </head>
 
 <body>
-  <div id="wrapper" class="wrapper-green">
-	<div class="container">
-		<h1 id="Title">Welcome</h1>
-        <h3>PTE Spelling Trainer V0.1</h3>
-		
-		<form id="formConfiguration"class="form">
-            <textarea id="txtWordList" rows="12" cols="50"  placeholder="Add a list of words to parctice"></textarea>
-            <button type="submit" id="login-button">Start</button>
-		</form>
-        <br/>
-        <br/>
-        <br/>
-        <form id="formPractice"class="form" style="display:none">
-            <input id="txtUserAnswer" placeholder="Type the word as you hear it" />
-            <button type="submit" id="next-button">Submit</button>
-            <button type="submit" id="repeate-button">Listen Again</button>
-        </form>
-	</div>
-	
-	<ul class="bg-bubbles">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-</div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <div id="wrapper" class="wrapper-green">
+        <div class="container">
+            <h1 id="Title">Welcome</h1>
+            <h3>PTE Spelling Trainer V0.1</h3>
+
+            <form id="formConfiguration" class="form">
+                <textarea id="txtWordList" rows="12" cols="50" placeholder="Add a list of words to parctice"></textarea>
+                <button type="submit" id="login-button">Start</button>
+            </form>
+            <br />
+            <br />
+            <br />
+            <form id="formPractice" class="form" style="display:none">
+                <input id="txtUserAnswer" placeholder="Type the word as you hear it" />
+                <button type="submit" id="next-button">Submit</button>
+                <button type="submit" id="repeate-button">Listen Again</button>
+            </form>
+            <div class="report-wrapper">
+                <form id="formSummary" class="form">
+                    <button type="submit" id="practice-button">Practice Weak Words</button>
+                    <button type="submit" id="restart-button">Start A New Set</button>
+                </form>
+                <table id="tableSummaryReport" class="report"></table>
+                <br />
+            </div>
+
+        </div>
+
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 
     <script src="js/index.js"></script>

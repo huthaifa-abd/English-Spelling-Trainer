@@ -303,3 +303,32 @@ form {
         transform: translateY(-700px) rotate(600deg);
     }
 }
+
+table.report {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    table.report  td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    table.report tr:nth-child(even) {
+        background-color: rgba(113, 113, 113, 0.28);
+    }
+
+.report-wrapper {
+    margin:25px;
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+    z-index: 10;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 400px;
+    right: 400px;
+    display:none;
+}

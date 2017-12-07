@@ -1,5 +1,6 @@
 //Store training set
 var wordList = [];
+var wrongSpellingList = [];
 var index = 0;
 var currentWord = "";
 $("#login-button").click(function (event) {
@@ -13,7 +14,6 @@ $("#login-button").click(function (event) {
     function func() {
         $('#formPractice').fadeIn(500);
         loadNextItem();
-        readCurrentWord();
     }
 });
 
@@ -38,10 +38,15 @@ function initialseInput() {
 }
 
 function loadNextItem() {
-    if (index >= 0 && index < wordList.length - 1)
+    if (index >= 0 && index <= wordList.length - 1) {
         currentWord = wordList[index++]
-    else
-        currentWord = wordList[0]
+        readCurrentWord();
+    }
+    else {
+        displaySummaryReport();
+        sayText("Training set completed, please review the summary report.");
+    }
+        
 }
 
 function readCurrentWord() {
@@ -50,15 +55,48 @@ function readCurrentWord() {
 
 function wrongAnswerAction() {
     sayText("Wrong Answer");
+    //Update wrong spelling list
+    updateWrongSpellingList();
     readCurrentWord();
 }
 
 function correctAnswerAction() {
     sayText("Correct");
     loadNextItem();
-    readCurrentWord();
 }
 
 function sayText(text) {
     responsiveVoice.speak(text);
+}
+
+function updateWrongSpellingList() {
+    if (wrongSpellingList[currentWord] == undefined)
+        wrongSpellingList[currentWord] = 1;
+    else
+        wrongSpellingList[currentWord] += 1;
+    console.log(wrongSpellingList);
+}
+
+function generateSummaryReport() {
+    var tableId = "tableSummaryReport";
+    var arrayLength = wrongSpellingList.length;
+    //Clear Old Content
+    $("#" + tableId + " tr").remove();
+    //Insert Header
+    $("#" + tableId).append("<tr><th>Word</th><th>Error Score</th></tr>");
+    //Fill New Content
+    for (var key in wrongSpellingList) {
+        $("#" + tableId).append("<tr><td>" + key + "</td><td>" + wrongSpellingList[key] + "</td></tr>");
+    }
+}
+
+function displaySummaryReport() {
+    $('#formPractice').hide();
+    $(".report-wrapper").show();
+    $('#Title').text('Summary Report')
+    generateSummaryReport();
+}
+
+function resetTraining() {
+    currentWord = wordList[0];
 }
